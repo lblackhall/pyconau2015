@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if not hide_form %}
+
+        <div class="row">
+            <div class="col-lg-8">
+                <h4>{{ btn_label }} a Todo</h4>
+
+                <form action="" method="POST">
+
+                    {{ form.id }}
+
+
+                    <label>{{ form.todo.label }}
+                        {{ form.todo }}
+                    </label>
+
+                    <label>{{ form.description.label }}
+                        {{ form.description }}
+                    </label>
+
+
+                    {{ form.csrf_token }}
+
+                    <button class="btn btn-default" type="submit">{{ btn_label }}</button>
+                </form>
+
+            </div>
+            <div class="col-lg-4">
+
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="/todo/" class="btn btn-default">Return to your Todos</a>
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

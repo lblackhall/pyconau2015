@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% macro display_todos(todos) %}
+
+    <table style="width:100%">
+        <tr>
+            <th>ToDo</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        {% for todo in todos %}
+            <tr style="text-align:center">
+                <td>{{ todo.todo }}</td>
+                <td>{{ todo.description }}</td>
+                <td><a href="/todo/{{ todo.id }}/edit" class="btn">Edit</a>
+                    <a href="/todo/{{ todo.id }}/delete" class="btn">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endmacro %}
+
+
+
+{% block content %}
+
+
+    <div class="row">
+
+        <div class="col-lg-8">
+            <h4>Your ToDos</h4>
+            <hr>
+            {{ display_todos(todos) }}
+
+            <hr>
+            <a href="/todo/add" class="btn btn-default">Add a Todo</a>
+        </div>
+        <div class="col-lg-4">
+        </div>
+    </div>
+
+
+
+{% endblock %}
